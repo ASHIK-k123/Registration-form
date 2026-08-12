@@ -1,0 +1,1543 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg: #08090c;
+
+    --surface: rgba(255, 255, 255, 0.055);
+
+    --surface-strong: rgba(255, 255, 255, 0.09);
+
+    --border: rgba(255, 255, 255, 0.12);
+
+    --text: #f5f5f2;
+
+    --muted: #8d8f96;
+
+    --accent: #d7ff4f;
+
+    --accent-dark: #9ebd20;
+
+    --danger: #ff5f5f;
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* ========================================
+   SPATIAL BACKGROUND
+======================================== */
+
+.space {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.space::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(215, 255, 79, 0.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(80, 120, 255, 0.07),
+            transparent 25%
+        );
+
+}
+
+
+.grid {
+
+    position: absolute;
+
+    width: 160%;
+
+    height: 160%;
+
+    left: -30%;
+
+    top: 30%;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    transform:
+
+        perspective(600px)
+        rotateX(65deg);
+
+    transform-origin: center top;
+
+    opacity: 0.5;
+
+}
+
+
+/* ========================================
+   ORBS
+======================================== */
+
+.orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(1px);
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.orb-one {
+
+    width: 320px;
+
+    height: 320px;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(215,255,79,0.20),
+            rgba(215,255,79,0.02) 60%,
+            transparent 70%
+        );
+
+    top: -100px;
+
+    right: 5%;
+
+}
+
+
+.orb-two {
+
+    width: 250px;
+
+    height: 250px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(80,120,255,0.13),
+            transparent 70%
+        );
+
+    bottom: 5%;
+
+    left: -80px;
+
+}
+
+
+.orb-three {
+
+    width: 180px;
+
+    height: 180px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.07),
+            transparent 70%
+        );
+
+    top: 45%;
+
+    right: 30%;
+
+}
+
+
+/* ========================================
+   FLOATING OBJECTS
+======================================== */
+
+.floating-card {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 75px;
+
+    height: 75px;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.13);
+
+    background:
+
+        rgba(255,255,255,0.035);
+
+    backdrop-filter: blur(10px);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    transition:
+
+        transform .15s ease-out;
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,0.4);
+
+}
+
+
+.card-one {
+
+    top: 16%;
+
+    left: 7%;
+
+    transform: rotate(15deg);
+
+}
+
+
+.card-two {
+
+    right: 7%;
+
+    top: 65%;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+}
+
+
+.card-three {
+
+    bottom: 12%;
+
+    left: 36%;
+
+    width: 45px;
+
+    height: 45px;
+
+    transform: rotate(30deg);
+
+}
+
+
+/* ========================================
+   MAIN PAGE
+======================================== */
+
+.page {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    width: min(1400px, 92%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 500px;
+
+    gap: 80px;
+
+    align-items: center;
+
+    padding: 70px 0;
+
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.intro {
+
+    padding-left: 4vw;
+
+}
+
+
+.eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    background: var(--accent);
+
+    border-radius: 50%;
+
+    box-shadow:
+
+        0 0 15px
+        var(--accent);
+
+    animation: pulse 2s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: .4;
+
+        transform: scale(.65);
+
+    }
+
+}
+
+
+.intro h1 {
+
+    max-width: 700px;
+
+    font-size:
+
+        clamp(
+            70px,
+            9vw,
+            145px
+        );
+
+    line-height: .78;
+
+    letter-spacing: -8px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+}
+
+
+.intro h1 span {
+
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke:
+
+        1px
+        rgba(255,255,255,.5);
+
+}
+
+
+.intro h1 .dot {
+
+    display: inline;
+
+    color: var(--accent);
+
+    -webkit-text-stroke: 0;
+
+}
+
+
+.intro p {
+
+    max-width: 430px;
+
+    margin-top: 45px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+.coordinates {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 55px;
+
+    color: #555860;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ========================================
+   REGISTRATION CARD
+======================================== */
+
+.register-area {
+
+    perspective: 1200px;
+
+}
+
+
+.register-card {
+
+    position: relative;
+
+    padding: 42px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+
+        1px solid
+        var(--border);
+
+    box-shadow:
+
+        0 40px 100px
+        rgba(0,0,0,.55),
+
+        inset 0 1px 0
+        rgba(255,255,255,.08);
+
+    backdrop-filter: blur(25px);
+
+    transform:
+
+        rotateY(-3deg)
+        rotateX(2deg);
+
+    transition:
+
+        transform .5s ease;
+
+}
+
+
+.register-card:hover {
+
+    transform:
+
+        rotateY(0deg)
+        rotateX(0deg)
+        translateY(-5px);
+
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 40px;
+
+}
+
+
+.small-label {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.card-top h2 {
+
+    font-size: 34px;
+
+    letter-spacing: -1px;
+
+}
+
+
+.card-number {
+
+    color: #555860;
+
+    font-size: 12px;
+
+}
+
+
+/* ========================================
+   FORM FIELDS
+======================================== */
+
+.field {
+
+    margin-bottom: 25px;
+
+}
+
+
+.field label {
+
+    display: block;
+
+    color: #73757c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 9px;
+
+}
+
+
+.input-wrapper {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom:
+
+        1px solid
+        rgba(255,255,255,.14);
+
+    transition:
+
+        border-color .3s ease;
+
+}
+
+
+.input-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -1px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--accent);
+
+    transition:
+
+        width .4s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.input-wrapper.active::after {
+
+    width: 100%;
+
+}
+
+
+.input-wrapper.active {
+
+    border-color:
+
+        rgba(255,255,255,.3);
+
+}
+
+
+.field-number {
+
+    color: #44464c;
+
+    font-size: 9px;
+
+    width: 30px;
+
+}
+
+
+.input-wrapper input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    padding: 14px 0;
+
+    font-size: 14px;
+
+}
+
+
+.input-wrapper input::placeholder {
+
+    color: #505259;
+
+}
+
+
+.password-toggle {
+
+    border: none;
+
+    background: transparent;
+
+    color: #666970;
+
+    cursor: pointer;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.password-toggle:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* ========================================
+   REGISTER BUTTON
+======================================== */
+
+.register-button {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 62px;
+
+    margin-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    border: none;
+
+    background: var(--accent);
+
+    color: #10120a;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    overflow: hidden;
+
+    transition:
+
+        transform .15s ease,
+
+        background .3s ease;
+
+}
+
+
+.register-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.5),
+            transparent
+        );
+
+    transition: left .6s ease;
+
+}
+
+
+.register-button:hover::before {
+
+    left: 100%;
+
+}
+
+
+.register-button:hover {
+
+    background: #e5ff78;
+
+}
+
+
+.button-arrow {
+
+    font-size: 22px;
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.register-button:hover .button-arrow {
+
+    transform:
+
+        translateX(7px);
+
+}
+
+
+/* ========================================
+   CARD FOOTER
+======================================== */
+
+.card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    color: #555860;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.card-footer a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    transition: color .2s;
+
+}
+
+
+.card-footer a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer {
+
+    position: fixed;
+
+    z-index: 5;
+
+    bottom: 25px;
+
+    left: 4%;
+
+    right: 4%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #44464d;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ========================================
+   SUCCESS PAGE
+======================================== */
+
+.success-page {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+}
+
+
+.success-card {
+
+    width: min(550px, 100%);
+
+    padding: 60px;
+
+    background:
+
+        rgba(255,255,255,.05);
+
+    border:
+
+        1px solid
+        var(--border);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+
+        0 40px 100px
+        rgba(0,0,0,.5);
+
+}
+
+
+.success-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    border:
+
+        1px solid
+        var(--accent);
+
+    color: var(--accent);
+
+    font-size: 25px;
+
+}
+
+
+.success-card h1 {
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+
+    letter-spacing: -2px;
+
+}
+
+
+.success-card h1 span {
+
+    color: var(--accent);
+
+}
+
+
+.success-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+.success-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 40px;
+
+}
+
+
+.success-buttons a {
+
+    padding: 16px 20px;
+
+    text-decoration: none;
+
+    color: #111;
+
+    background: var(--accent);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.success-buttons a:last-child {
+
+    background: transparent;
+
+    color: var(--text);
+
+    border:
+
+        1px solid
+        var(--border);
+
+}
+
+
+/* ========================================
+   USERS PAGE
+======================================== */
+
+.users-page {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1200px, 92%);
+
+    margin: auto;
+
+    padding: 80px 0;
+
+}
+
+
+.users-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+
+}
+
+
+.users-header h1 {
+
+    font-size:
+
+        clamp(
+            50px,
+            8vw,
+            110px
+        );
+
+    line-height: .8;
+
+    letter-spacing: -6px;
+
+    text-transform: uppercase;
+
+}
+
+
+.users-header h1 span {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+
+        1px
+        rgba(255,255,255,.5);
+
+}
+
+
+.users-header .dot {
+
+    display: inline;
+
+    color: var(--accent);
+
+    -webkit-text-stroke: 0;
+
+}
+
+
+.new-user-button {
+
+    color: #111;
+
+    background: var(--accent);
+
+    padding: 17px 23px;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    transition: transform .3s;
+
+}
+
+
+.new-user-button:hover {
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+
+/* ========================================
+   USERS TABLE
+======================================== */
+
+.users-card {
+
+    border:
+
+        1px solid
+        var(--border);
+
+    background:
+
+        rgba(255,255,255,.035);
+
+    backdrop-filter: blur(20px);
+
+    overflow: hidden;
+
+}
+
+
+.table-header,
+.user-row {
+
+    display: grid;
+
+    grid-template-columns:
+
+        80px
+        1.2fr
+        1.5fr
+        1fr;
+
+    gap: 20px;
+
+    align-items: center;
+
+}
+
+
+.table-header {
+
+    padding: 18px 25px;
+
+    color: #555860;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    border-bottom:
+
+        1px solid
+        var(--border);
+
+}
+
+
+.user-row {
+
+    padding: 22px 25px;
+
+    color: #b9bac0;
+
+    font-size: 12px;
+
+    border-bottom:
+
+        1px solid
+        rgba(255,255,255,.06);
+
+    transition:
+
+        background .3s ease,
+
+        transform .3s ease;
+
+}
+
+
+.user-row:hover {
+
+    background:
+
+        rgba(255,255,255,.04);
+
+}
+
+
+.user-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.user-id {
+
+    color: #555860;
+
+}
+
+
+.user-name {
+
+    color: var(--text);
+
+    font-weight: 600;
+
+}
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 100px 30px;
+
+}
+
+
+.empty-icon {
+
+    font-size: 50px;
+
+    color: #555860;
+
+    margin-bottom: 20px;
+
+}
+
+
+.empty-state h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-state h2 span {
+
+    color: var(--accent);
+
+}
+
+
+.empty-state p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.empty-state a {
+
+    display: inline-block;
+
+    color: #111;
+
+    background: var(--accent);
+
+    text-decoration: none;
+
+    padding: 15px 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ========================================
+   USERS FOOTER
+======================================== */
+
+.users-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    color: #4b4d53;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .page {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        width: min(600px, 90%);
+
+    }
+
+
+    .intro {
+
+        padding-left: 0;
+
+        text-align: center;
+
+    }
+
+
+    .intro .eyebrow {
+
+        justify-content: center;
+
+    }
+
+
+    .intro h1 {
+
+        font-size:
+
+            clamp(
+                65px,
+                14vw,
+                110px
+            );
+
+    }
+
+
+    .intro p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .coordinates {
+
+        justify-content: center;
+
+    }
+
+
+    .register-card {
+
+        transform: none;
+
+    }
+
+
+    .site-footer {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .page {
+
+        padding: 40px 0;
+
+    }
+
+
+    .intro h1 {
+
+        letter-spacing: -5px;
+
+    }
+
+
+    .register-card {
+
+        padding: 28px 22px;
+
+    }
+
+
+    .users-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 30px;
+
+    }
+
+
+    .users-header h1 {
+
+        font-size: 60px;
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .table-header {
+
+        display: none;
+
+    }
+
+
+    .user-row {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+
+        padding: 25px;
+
+    }
+
+
+    .success-card {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .success-card h1 {
+
+        font-size: 36px;
+
+    }
+
+
+    .success-buttons {
+
+        flex-direction: column;
+
+    }
+
+}
