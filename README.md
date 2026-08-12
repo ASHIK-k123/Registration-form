@@ -116,3 +116,5 @@ Register interface : https://github.com/ASHIK-k123/Registration-form/blob/main/R
 User view interface : https://github.com/ASHIK-k123/Registration-form/blob/main/usera.png
 
 Edit interface : https://github.com/ASHIK-k123/Registration-form/blob/main/edit.png
+
+Delete interface : https://github.com/ASHIK-k123/Registration-form/blob/main/delete.png
