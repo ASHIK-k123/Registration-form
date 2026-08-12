@@ -114,3 +114,5 @@ This project is licensed under the MIT License.
 Register interface : https://github.com/ASHIK-k123/Registration-form/blob/main/Register.png
 
 User view interface : https://github.com/ASHIK-k123/Registration-form/blob/main/usera.png
+
+Edit interface : https://github.com/ASHIK-k123/Registration-form/blob/main/edit.png
