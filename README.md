@@ -1,6 +1,8 @@
 User Registration & Management System
 
+
 A simple and modern PHP & MySQL user registration and management system with validation, secure password hashing, CRUD operations, and two-step delete verification.
+
 
 Features
 User registration
@@ -18,6 +20,7 @@ MySQL
 HTML5
 CSS3
 
+
 Project Structure
 registration/
 │
@@ -28,13 +31,18 @@ registration/
 ├── delete.php
 ├── style.css
 
+
 Database
+
 
 Create a MySQL database named:
 
+
 registration_db
 
+
 Create a users table with:
+
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -43,19 +51,21 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(20) NOT NULL
 );
+
 How to Run
+
 Install XAMPP or another PHP/MySQL server.
 Copy the project into the htdocs folder.
 Start Apache and MySQL.
 Create the registration_db database in phpMyAdmin.
 Create the users table using the SQL above.
 Update your database configuration.
-Open the project in your browser:
-http://localhost/registration/
-Security
+
+
 
 
 Important: Never upload real database passwords, API keys, or other secrets to GitHub.
+
 
 Future Improvements
 User login and logout
@@ -65,6 +75,8 @@ Admin dashboard
 Session authentication
 CSRF protection
 User profile management
+
 License
+
 
 This project is licensed under the MIT License.
