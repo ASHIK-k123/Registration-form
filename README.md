@@ -4,6 +4,7 @@ User Registration & Management System
 A simple and modern PHP & MySQL user registration and management system with validation, secure password hashing, CRUD operations, and two-step delete verification.
 
 
+
 Features
 
 User registration
@@ -24,6 +25,7 @@ Responsive and modern UI
 
 Prepared SQL statements
 
+
 Technologies
 
 PHP
@@ -35,7 +37,9 @@ HTML5
 CSS3
 
 
+
 Project Structure
+
 registration/
 │
 ├── index.php
