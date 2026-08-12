@@ -5,19 +5,33 @@ A simple and modern PHP & MySQL user registration and management system with val
 
 
 Features
+
 User registration
+
 Email validation
+
 Secure password hashing
+
 MySQL database integration
+
 View registered users
+
 Edit user details
+
 Delete users with two-step verification
+
 Responsive and modern UI
+
 Prepared SQL statements
+
 Technologies
+
 PHP
+
 MySQL
+
 HTML5
+
 CSS3
 
 
@@ -55,10 +69,15 @@ CREATE TABLE users (
 How to Run
 
 Install XAMPP or another PHP/MySQL server.
+
 Copy the project into the htdocs folder.
+
 Start Apache and MySQL.
+
 Create the registration_db database in phpMyAdmin.
+
 Create the users table using the SQL above.
+
 Update your database configuration.
 
 
@@ -68,12 +87,19 @@ Important: Never upload real database passwords, API keys, or other secrets to G
 
 
 Future Improvements
+
 User login and logout
+
 Email OTP verification
+
 Forgot password
+
 Admin dashboard
+
 Session authentication
+
 CSRF protection
+
 User profile management
 
 License
